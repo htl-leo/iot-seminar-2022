@@ -49,7 +49,7 @@ namespace Tests.IntegrationTests
         private static async Task<UserGetDto[]> GetUsersAsync()
         {
             var client = await ApiTestHelpers.GetAuthorizedClientAsync();
-            var response = await client.GetAsync($"{BaseUrl}/getall");
+            var response = await client.GetAsync($"{BaseUrl}/get");
             response.EnsureSuccessStatusCode();
             var responseString = await response.Content.ReadAsStringAsync();
             var users = JsonConvert.DeserializeObject<UserGetDto[]>(responseString);
@@ -64,7 +64,7 @@ namespace Tests.IntegrationTests
             // Arrange
             var client = await ApiTestHelpers.GetAuthorizedClientAsync();
             // Act
-            var response = await client.GetAsync($"{BaseUrl}/getall");
+            var response = await client.GetAsync($"{BaseUrl}/get");
             response.EnsureSuccessStatusCode();
             var responseString = await response.Content.ReadAsStringAsync();
             var result = JsonConvert.DeserializeObject<UserGetDto[]>(responseString);
@@ -78,7 +78,7 @@ namespace Tests.IntegrationTests
             // Arrange
             var client = ApiTestHelpers.GetClient();
             // Act
-            var response = await client.GetAsync($"{BaseUrl}/getall");
+            var response = await client.GetAsync($"{BaseUrl}/get");
             Assert.AreEqual(HttpStatusCode.Unauthorized, response.StatusCode);
         }
 

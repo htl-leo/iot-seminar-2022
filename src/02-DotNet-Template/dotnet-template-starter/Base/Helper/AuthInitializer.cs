@@ -1,7 +1,7 @@
 ﻿
 using Base.Contracts.Persistence;
 using Base.Entities;
-
+using Base.Persistence;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
@@ -15,8 +15,10 @@ namespace Base.Helper
         private UserManager<IdentityUser> UserManager { get; set; }
         private RoleManager<IdentityRole> RoleManager { get; set; }
 
-        public AuthInitializer(UserManager<IdentityUser> userManager,
-                             RoleManager<IdentityRole> roleManager)
+        public AuthInitializer(
+            BaseUnitOfWork unitOfWork,
+            UserManager<IdentityUser> userManager,
+            RoleManager<IdentityRole> roleManager)
         {
             RoleManager = roleManager;
             UserManager = userManager;

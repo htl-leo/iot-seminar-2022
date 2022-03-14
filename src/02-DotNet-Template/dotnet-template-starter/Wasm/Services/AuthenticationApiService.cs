@@ -45,7 +45,7 @@ namespace Wasm.Services
         /// <returns></returns>
         public async Task<ApiResponseDto<UserDetailsDto[]>> GetUsersWithRolesAsync()
         {
-            var response = await HttpClient.GetAsync($"{BaseUrl}getall");
+            var response = await HttpClient.GetAsync($"{BaseUrl}get");
             if (response.IsSuccessStatusCode)
             {
                 var contentTemp = await response.Content.ReadAsStringAsync();

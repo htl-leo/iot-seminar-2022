@@ -133,7 +133,7 @@ namespace Api.Controllers.Auth
         [ProducesResponseType(typeof(UserDetailsDto[]), StatusCodes.Status200OK)]
         [Authorize]
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> Get()
         {
             //var userDtos = await UserManager.Users.ToListAsync();
             var result = new List<UserDetailsDto>();

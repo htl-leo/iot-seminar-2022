@@ -35,12 +35,15 @@ namespace Base.Persistence
         {
             if (!optionsBuilder.IsConfigured)
             {
-                //string dbFileName = configuration["ConnectionStrings:DbFileName"];
-                //optionsBuilder.UseSqlite($"Data Source={dbFileName}");
-                ////optionsBuilder.UseLoggerFactory(GetLoggerFactory());
+                // SqlServer (MSSqlLocalDb)
+                //string connectionString = ConfigurationHelper
+                //    .GetConfiguration("DefaultConnection", "ConnectionStrings");
+                //optionsBuilder.UseSqlServer(connectionString);
 
-                string connectionString = ConfigurationHelper.GetConfiguration("DefaultConnection", "ConnectionStrings");
-                optionsBuilder.UseSqlServer(connectionString);
+                // Sqlite
+                string connectionString = ConfigurationHelper
+                    .GetConfiguration("SqliteConnection", "ConnectionStrings");
+                optionsBuilder.UseSqlite(connectionString);
             }
         }
 

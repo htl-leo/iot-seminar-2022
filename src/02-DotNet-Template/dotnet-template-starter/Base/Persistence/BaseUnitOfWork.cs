@@ -20,6 +20,7 @@ namespace Base.Persistence
 
         public BaseUnitOfWork(BaseApplicationDbContext dbContext)
         {
+            dbContext.Database.EnsureCreated();
             BaseApplicationDbContext = dbContext;
             Sessions = new SessionRepository(dbContext);
             ApplicationUsers = new ApplicationUserRepository(dbContext);

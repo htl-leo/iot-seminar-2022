@@ -12,9 +12,4 @@
     <ProjectReference Include="..\Base\Base.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="DataTransferObjects\" />
-    <Folder Include="Services\" />
-  </ItemGroup>
-
 </Project>

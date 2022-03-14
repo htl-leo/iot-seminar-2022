@@ -47,15 +47,15 @@ namespace Api
         /// <param name="services"></param>
         public void ConfigureServices(IServiceCollection services)
         {
-            string connectionString = ConfigurationHelper
-                .GetConfiguration("DefaultConnection", "ConnectionStrings");
-            _ = services.AddDbContext<ApplicationDbContext>(options =>
-                        options.UseSqlServer(connectionString));
+            //string connectionString = ConfigurationHelper
+            //    .GetConfiguration("DefaultConnection", "ConnectionStrings");
+            //_ = services.AddDbContext<ApplicationDbContext>(options =>
+            //            options.UseSqlServer(connectionString));
 
-            //var appSettingsSection = Configuration.GetSection("ConnectionStrings");
-            //var dbFileName = appSettingsSection["DbFileName"];
-            //services.AddDbContext<ApplicationDbContext>(options =>
-            //    options.UseSqlite($"Data Source={dbFileName}"));
+            string connectionString = ConfigurationHelper
+                .GetConfiguration("SqliteConnection", "ConnectionStrings");
+            _ = services.AddDbContext<ApplicationDbContext>(options =>
+                        options.UseSqlite(connectionString));
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<BaseUnitOfWork, UnitOfWork>();

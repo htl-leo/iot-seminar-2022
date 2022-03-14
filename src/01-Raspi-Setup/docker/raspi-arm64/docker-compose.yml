@@ -1,0 +1,58 @@
+version: "3.8"
+services:
+  portainer:
+    image: portainer/portainer:latest
+    container_name: portainer
+    command: -H unix:///var/run/docker.sock
+    restart: always
+    ports:
+      - 9000:9000
+      - 8000:8000
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainer-data:/data
+  # seq:
+  #   image: datalust/seq:2021.3.6681-arm64
+  #   container_name: seq
+  #   volumes:
+  #     - seq-data:/data          
+  #   restart: unless-stopped
+  #   environment:
+  #     ACCEPT_EULA: "Y"
+  #   ports:
+      # - 5341:80
+  mqtt:
+    image: eclipse-mosquitto
+    container_name: mosquitto
+    restart: always
+    expose:
+      - 1883
+      - 8883
+      - 9001
+    ports:
+      - 1883:1883
+      - 8883:8883
+      - 9001:9001
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/log:/mosquitto/log
+      - ./mosquitto/data:/mosquitto/data
+      - /etc/localtime:/etc/localtime:ro
+  rpi-monitor:
+    image: michaelmiklis/rpi-monitor:latest
+    container_name: rpi-monitor
+    volumes:
+      - /opt/vc:/opt/vc
+      - /boot:/boot
+      - /sys:/dockerhost/sys:ro
+      - /etc:/dockerhost/etc:ro
+      - /proc:/dockerhost/proc:ro
+      - /usr/lib:/dockerhost/usr/lib:ro
+    devices:
+      - "/dev/vchiq:/dev/vchiq" 
+    restart: unless-stopped
+    ports:
+      - 8888:8888
+volumes:
+  portainer-data:
+  seq-data:

@@ -29,6 +29,12 @@ namespace Wasm.Pages.IoT
 
             hubConnection.On<MeasurementTimeValue>("ReceiveMeasurement", (measurement) =>
             {
+                if (measurement.ItemName == IotShellyPlug_Relay.ActorEnum.ToString())
+                {
+                    IotShellyPlug_Relay.IsOn = measurement.Value != 0;
+                    Console.WriteLine($"Switch changed to {IotShellyPlug_Relay.IsOn}");
+                    StateHasChanged();
+                }
                 Console.WriteLine($"{measurement.ItemName} {measurement.Value}");
 
             });

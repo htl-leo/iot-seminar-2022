@@ -1,0 +1,93 @@
+@host = https://localhost:5001/api
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiYWRtaW5AaHRsLmF0IiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvZW1haWxhZGRyZXNzIjoiYWRtaW5AaHRsLmF0IiwiSWQiOiI4MzA5OWQ0ZC01MzlkLTQ5MzEtODRlZi04NTc0NDg3ZGEwNjUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY0NjU3NjQ2MiwiaXNzIjoiaHR0cHM6Ly9sb2NhbGhvc3Q6NTAwMS8iLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdDo1MDAxLyJ9.-M3NFdcZMe8fhcUs4eIoF6D_JeNEYz7erzJhGgv_HL4
+###
+// Login as Admin
+POST {{host}}/users/login
+Content-Type: application/json
+
+{
+  "email": "admin@htl.at",
+  "password": "Admin123*"
+}
+
+###
+// Login as User
+POST {{host}}/users/login
+Content-Type: application/json
+
+{
+  "email": "user@htl.at",
+  "password": "User123*"
+}
+
+
+###
+// Logout a user
+GET {{host}}/users/logout/8fe36c15-8e54-4a44-b8f7-a1e0a88406c7
+Authorization: Bearer {{token}}
+
+
+
+###
+// Get all users
+GET {{host}}/users/get
+Authorization: Bearer {{token}}
+
+###
+// Get all roles
+GET {{host}}/roles/get
+Authorization: Bearer {{token}}
+
+###
+// Get all sessions
+GET {{host}}/sessions/get
+Authorization: Bearer {{token}}
+
+###
+// Register new user
+POST {{host}}/users/register
+Content-Type: application/json
+
+{
+  "Name": "example",
+  "Email": "user1@example.com",
+  "PhoneNo": "any",
+  "Password": "Bla$5678",
+  "ConfirmPassword": "Bla$5678"
+}
+
+###
+// Insert or update new user with role
+PUT {{host}}/users/upsertbyadmin
+Content-Type: application/json
+Authorization: Bearer {{token}}
+
+{
+  "Id": "16bcbbee-cff2-4750-8a4e-b8f54dcd38f0",
+  "Email": "user1@example.com",
+  "Name": "example",
+  "NewPassword": "Bla*5678",
+  "PhoneNumber": "123456",
+  "RoleName": "User"
+}
+
+###
+// Login as User
+POST {{host}}/users/login
+Content-Type: application/json
+
+{
+  "email": "user1@example.com",
+  "password": "Bla$5678"
+}
+
+
+###
+// Get all measurements
+GET {{host}}/measurements/get
+
+
+###
+// Get all measurements for a specific item
+GET {{host}}/measurements/get?itemname=Nl_School_Co2

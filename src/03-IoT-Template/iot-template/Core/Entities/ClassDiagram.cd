@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Adwin.Core.Entities.Game">
+    <Position X="4.25" Y="1" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAIAAAAQAAAAAAAAAAAAgAEAAIAAABgAAAQAIAAAA=</HashCode>
+      <FileName>Entities\Game.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Season" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Tips" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Adwin.Core.Entities.Season">
+    <Position X="0.75" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAIAAAAAACAAAAAAAAAAAAQAAAAAABAAAAAAAAAAAAA=</HashCode>
+      <FileName>Entities\Season.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Games" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Adwin.Core.Entities.BetTicket">
+    <Position X="10" Y="0.75" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIEIAAAAAAAAACEAAAgBABAAAAAgAIEQAEAIAA=</HashCode>
+      <FileName>Entities\BetTicket.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Tips" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Adwin.Core.Entities.Tip">
+    <Position X="7.5" Y="1" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAEAAAAAACEAAAgIAAgAIAAAgAAAAIEAAEA=</HashCode>
+      <FileName>Entities\Tip.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Game" />
+      <Property Name="SeasonTips" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

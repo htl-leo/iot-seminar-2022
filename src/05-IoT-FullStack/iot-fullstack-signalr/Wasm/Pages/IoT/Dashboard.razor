@@ -1,0 +1,23 @@
+﻿@page "/iot-dashboard"
+
+@using Core.Entities
+@using Radzen.Blazor
+
+<div class="container">
+    <h1>Dashboard</h1>
+    <div>
+
+
+        <div class="flex-container">
+            <div class="d-flex p-2 align-items-center">
+                <span class="mr-2">Shelly Plug:</span>
+                <RadzenSwitch class="switch-symbol"
+                              @bind-Value=@IotShellyPlug_Relay.IsOn
+                              Disabled="@IotShellyPlug_Relay.IsDisabled"
+                              Change="@(_ => SwitchChangedAsync(ItemEnum.IotShellyPlug_Relay))" />
+            </div>
+        </div>
+    </div>
+
+</div>
+

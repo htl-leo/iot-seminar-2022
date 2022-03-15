@@ -1,0 +1,60 @@
+﻿@page "/iot-dashboard"
+
+@using Core.Entities
+@using Radzen.Blazor
+
+<div class="container">
+    <h3 class="col-12 text-success text-center py-2">
+        <strong>Iot Dashboard</strong>
+    </h3>
+    <div>
+        <div class="card">
+            <h5 class="card-header">Sensorbox</h5>
+
+            <div class="card-body">
+                <div class="flex-container">
+                    <div class="flex-container">
+                        <div><input type="text" readonly class="form-control-plaintext measurement-label" value="Temperatur:"></div>
+                        <div><input type="text" readonly class="form-control-plaintext measurement-text" value=@Temperature.Value.ToString("F2")></div>
+                    </div>
+                </div>
+                <div class="flex-container">
+                    <div class="flex-container">
+                        <div><input type="text" readonly class="form-control-plaintext measurement-label" value="Feldstärke:"></div>
+                        <div><input type="text" readonly class="form-control-plaintext measurement-text" value=@Rssi.Value.ToString("F0")></div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span>FooterInfo</span>
+            </div>
+        </div>
+
+        <div class="card mt-2">
+            <h5 class="card-header">Shelly</h5>
+            <div class="card-body">
+                <div class="flex-container">
+                    <div class="flex-container">
+                        <div><input type="text" readonly class="form-control-plaintext measurement-label" value="Leistung:"></div>
+                        <div><input type="text" readonly class="form-control-plaintext measurement-text" value=@IotShellyPlug_Power.Value.ToString("F0")></div>
+                    </div>
+                </div>
+                <div class="flex-container">
+                    <div class="d-flex p-2 align-items-center">
+                        <span class="mr-2">Shelly Plug:</span>
+                        <RadzenSwitch class="switch-symbol"
+                                      @bind-Value=@IotShellyPlug_Relay.IsOn
+                                      Disabled="@IotShellyPlug_Relay.IsDisabled"
+                                      Change="@(_ => SwitchChangedAsync(ItemEnum.IotShellyPlug_Relay))" />
+                    </div>
+                </div>
+            </div>
+            <div class="card-footer">
+                <span>Footer</span>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+

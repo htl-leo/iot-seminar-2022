@@ -1,0 +1,44 @@
+version: "3.8"
+
+services:
+  api:
+    image: api:latest
+    build: 
+        context: .
+        dockerfile: ./Api/Dockerfile
+    container_name: api
+    environment:
+      ASPNETCORE_URLS: http://0.0.0.0:5000
+      ASPNETCORE_ENVIRONMENT: Production
+    restart: on-failure
+    ports:
+      - 8081:5000
+    volumes:
+       - ./Api/data:/app/data
+
+  wasm:
+    image: wasm:latest
+    build: 
+        context: .
+        dockerfile: ./Wasm/Dockerfile
+    container_name: wasm
+    environment:
+        ASPNETCORE_URLS: http://0.0.0.0:80
+        ASPNETCORE_ENVIRONMENT: Development
+    restart: on-failure
+    ports:
+        - 8082:80
+ 
+  seq:
+    image: datalust/seq:2021.3.6681-arm64
+    container_name: seq
+    volumes:
+      - seq-data:/data          
+    restart: unless-stopped
+    environment:
+      ACCEPT_EULA: "Y"
+    ports:
+      - 5341:80
+
+volumes:
+    seq-data:

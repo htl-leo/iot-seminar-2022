@@ -1,0 +1,58 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="IotServices.Services.IotService">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAEA=</HashCode>
+      <FileName>Services\IotService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_signalRHubContext" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="IotServices.Services.MqttService">
+    <Position X="0.5" Y="2.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAQAAAAAQAAAAAAAgAAAAAAAAAAAACAAQAAAQBAAAAg=</HashCode>
+      <FileName>Services\MqttService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="IotServices.Services.PersistenceService">
+    <Position X="2.75" Y="3" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAQAAAABAAAAA=</HashCode>
+      <FileName>Services\PersistenceService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="IotServices.Services.StateService">
+    <Position X="5.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAJAIAAQAAgEAAAAAAAACQAAAAAACQQCACABAAAQA=</HashCode>
+      <FileName>Services\StateService.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SignalRHubContext" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Services.Hubs.SignalRHub">
+    <Position X="2.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Hubs\SignalRHub.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Services.Contracts.IStateService" Collapsed="true">
+    <Position X="11.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAQAAgAAAAAAAAAAQAAAAAACAAAACAAAAAQA=</HashCode>
+      <FileName>Contracts\IStateService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Microsoft.AspNetCore.SignalR.IHubContext&lt;THub&gt;" Collapsed="true">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier />
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

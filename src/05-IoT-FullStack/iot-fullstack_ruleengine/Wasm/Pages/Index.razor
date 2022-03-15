@@ -1,0 +1,30 @@
+﻿@page "/"
+@using Base.DataTransferObjects
+@using Blazored.LocalStorage
+
+<div class="container">
+    <div class="row">
+        <h1>IoT.Net Dashboard</h1>
+    </div>
+
+    <AuthorizeView>
+        <Authorized>
+            <div class="row">
+                <h3>Welcome @context.User.Identity.Name</h3>
+            </div>
+        </Authorized>
+        <NotAuthorized>
+            <div class="row">
+                <h3>Welcome, please log in!</h3>
+            </div>
+        </NotAuthorized>
+    </AuthorizeView>
+</div>
+
+
+
+
+@code {
+
+
+}

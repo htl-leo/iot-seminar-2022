@@ -58,9 +58,9 @@ namespace Api
                     options.UseSqlite(connectionString));
 
             services.AddSingleton<IotService>();
-            services.AddSingleton<PersistenceService>();
-            services.AddSingleton<MqttService>();
-            services.AddSingleton<StateService>();
+            services.AddTransient<PersistenceService>();
+            services.AddTransient<MqttService>();
+            services.AddTransient<StateService>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<BaseUnitOfWork, UnitOfWork>();

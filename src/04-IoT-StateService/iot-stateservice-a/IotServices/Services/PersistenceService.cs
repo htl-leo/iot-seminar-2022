@@ -15,11 +15,8 @@ namespace IotServices.Services
 {
     public class PersistenceService
     {
-        public PersistenceService(IUnitOfWork unitOfWork) 
+        public PersistenceService() 
         {
-            UnitOfWork = unitOfWork;
         }
-
-        public IUnitOfWork UnitOfWork { get; }
     }
 }

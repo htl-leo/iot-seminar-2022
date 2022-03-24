@@ -17,16 +17,18 @@ namespace IotServices.Services
     public class StateService : IStateService
     {
 
-        public StateService(IUnitOfWork unitOfWork)
+        public StateService(MqttService mqttService)
         {
-            UnitOfWork = unitOfWork;
+            MqttService = mqttService;
         }
+
+        private MqttService MqttService { get; }
 
         public Dictionary<ItemEnum, MeasurementDto?> LastMeasurements { get; private set; }
 
         public Sensor[] Sensors { get; private set; }
         public Actor[] Actors { get; private set; }
-        public IUnitOfWork UnitOfWork { get; }
+        public IUnitOfWork UnitOfWork { get; set; }
 
         public Sensor? GetSensor(ItemEnum sensorEnum) => Sensors.SingleOrDefault(s => s.ItemEnum == sensorEnum);
         public Actor? GetActor(ItemEnum actorEnum) => Actors.SingleOrDefault(a => a.ItemEnum == actorEnum);
@@ -68,7 +70,7 @@ namespace IotServices.Services
             {
                 LastMeasurements[actor.ItemEnum] = null;
             }
-            MqttService.Instance.MessageReceived += Mqtt_MessageReceived;
+            MqttService.MessageReceived += Mqtt_MessageReceived;
         }
 
         private async void Mqtt_MessageReceived(object? sender, MqttMessage mqttMessage)

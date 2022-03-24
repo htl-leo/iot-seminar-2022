@@ -57,10 +57,10 @@ namespace Api
             _ = services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlite(connectionString));
 
-            services.AddSingleton<IotService>();
-            services.AddTransient<PersistenceService>();
-            services.AddTransient<MqttService>();
-            services.AddTransient<StateService>();
+            //services.AddSingleton<IotService>();
+            services.AddSingleton<PersistenceService>();
+            services.AddSingleton<MqttService>();
+            services.AddSingleton<StateService>();
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<BaseUnitOfWork, UnitOfWork>();

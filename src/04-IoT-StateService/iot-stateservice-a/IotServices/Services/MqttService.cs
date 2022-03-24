@@ -16,9 +16,6 @@ namespace IotServices.Services
     public class MqttService : IMqttService
     {
 
-        private static readonly Lazy<MqttService> lazy = new(() => new MqttService());
-        public static MqttService Instance { get { return lazy.Value; } }
-
         public IMqttClientOptions? MqttClientOptions { get; private set; }
         private readonly string ClientId = $"MqttService_{Guid.NewGuid()}";
 

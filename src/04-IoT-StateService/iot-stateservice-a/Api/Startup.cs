@@ -57,7 +57,7 @@ namespace Api
             _ = services.AddDbContext<ApplicationDbContext>(options =>
                     options.UseSqlite(connectionString));
 
-            services.AddSingleton<IotService>();
+            //services.AddSingleton<IotService>();
             services.AddSingleton<PersistenceService>();
             services.AddSingleton<MqttService>();
             services.AddSingleton<StateService>();

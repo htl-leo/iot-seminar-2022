@@ -25,6 +25,7 @@ namespace IotServices.Services
             var stateService = childContainer.ServiceProvider.GetRequiredService<StateService>();
             var mqttService = childContainer.ServiceProvider.GetRequiredService<MqttService>();
             var persistenceService = childContainer.ServiceProvider.GetRequiredService<PersistenceService>();
+            stateService.UnitOfWork = uow;
             await mqttService!.InitAsync();
             await stateService!.InitAsync(); // Sensoren/Aktoren initialisieren und mit DB synchronisieren
 
